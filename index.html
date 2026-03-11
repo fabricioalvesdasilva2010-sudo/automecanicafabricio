@@ -1,29 +1,108 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Auto Mecânica Fabrício</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Mecânica Fabrício</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #0a1224;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+
+            /* BACKGROUND COM A LOGO */
+            background-image: url("logo-bg.webp"); /* <-- Troca aqui quando me enviar o arquivo */
+            background-size: 80%;
+            background-repeat: no-repeat;
+            background-position: center 100px;
+            background-attachment: fixed;
+            opacity: 1;
+        }
+
+        h1 {
+            margin-top: 40px;
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        h2 {
+            font-size: 18px;
+            margin-bottom: 40px;
+            color: #d9d9d9;
+        }
+
+        /* BOTÕES */
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: black;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 18px;
+            display: inline-block;
+            margin-bottom: 30px;
+            transition: 0.2s;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #1aa84d;
+        }
+
+        .box-form {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            width: 90%;
+            max-width: 350px;
+            margin: auto;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(4px);
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .btn-enviar {
+            background-color: #1b4b9c;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn-enviar:hover {
+            background-color: #163e82;
+        }
+
+    </style>
 </head>
 <body>
-<header>
-<h1>Auto Mecânica Fabrício</h1>
-<p>Manutenção completa para automóveis e caminhonetes</p>
-<a href="https://wa.me/5547988328284" class="btn">WhatsApp</a>
-<a href="tel:+5547988328284" class="btn">Ligar Agora</a>
-</header>
 
-<section>
-<h2>Solicite Orçamento</h2>
-<form action="mailto:SEUEMAILAQUI" method="post" enctype="text/plain">
-<input type="text" name="nome" placeholder="Seu nome" required>
-<input type="text" name="telefone" placeholder="WhatsApp" required>
-<input type="text" name="carro" placeholder="Modelo do carro" required>
-<textarea name="problema" placeholder="Descreva o problema" rows="4"></textarea>
-<button type="submit">Enviar</button>
-</form>
-</section>
+    <h1>AUTO MECÂNICA FABRÍCIO</h1>
+    <h2>Manutenção completa para automóveis</h2>
+
+    <a href="https://wa.me/5547988328284" class="btn-whatsapp">WhatsApp</a>
+
+    <div class="box-form">
+        <h3>Solicite Orçamento</h3>
+        <input type="text" placeholder="Seu nome">
+        <input type="text" placeholder="Seu telefone">
+        <button class="btn-enviar">Enviar</button>
+    </div>
 
 </body>
 </html>
