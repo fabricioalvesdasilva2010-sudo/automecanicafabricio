@@ -1,49 +1,173 @@
-          <input id="telefone" type="text" placeholder="Seu telefone">
+          <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Mecânica Fabrício</title>
 
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #060c1a;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            color: white;
+            text-align: center;
+        }
+
+        /* Background da logo com ajuste de compatibilidade */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("logo-bg.webp");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.12;
+            z-index: -1;
+        }
+
+        section {
+            padding: 40px 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .btn-whatsapp, .btn-ligar {
+            background-color: #25D366;
+            color: black;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 18px;
+            display: inline-block;
+            margin: 10px;
+            transition: 0.3s;
+        }
+
+        .btn-ligar { background-color: #1b9cfc; color: white; }
+        .btn-whatsapp:hover { background-color: #1aa84d; transform: scale(1.05); }
+        .btn-ligar:hover { background-color: #1679c4; transform: scale(1.05); }
+
+        .box-form {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            max-width: 350px;
+            margin: 20px auto;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(8px);
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+            border: none;
+            margin-bottom: 15px;
+            box-sizing: border-box; /* Garante que o padding não quebre a largura */
+        }
+
+        .btn-enviar {
+            background-color: #1b4b9c;
+            color: white;
+            width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .servicos-lista { padding: 0; }
+        .servicos-lista li { list-style: none; margin: 10px 0; font-size: 18px; color: #adbac7; }
+
+        footer { padding: 30px; color: #666; font-size: 13px; }
+    </style>
+</head>
+<body>
+
+    <header style="padding-top: 40px;">
+        <h1>AUTO MECÂNICA FABRÍCIO</h1>
+        <p style="color: #1b9cfc; font-weight: bold;">Manutenção completa para automóveis</p>
+    </header>
+
+    <div style="margin-top: 20px;">
+        <a href="https://wa.me/5547988328284" target="_blank" class="btn-whatsapp">Chamar no WhatsApp</a>
+        <a href="tel:47988328284" class="btn-ligar">Ligar Agora</a>
+    </div>
+
+    <section>
+        <h2>Confiança com Décadas de Experiência</h2>
+        <p>Atendemos Blumenau e região com profissionalismo e transparência. Especialistas em mecânica geral e eletrônica embarcada.</p>
+    </section>
+
+    <section style="background: rgba(255,255,255,0.02); border-radius: 20px;">
+        <h2>Nossos Serviços</h2>
+        <ul class="servicos-lista">
+            <li>✔ Injeção Eletrônica & Scanner</li>
+            <li>✔ Suspensão e Freios</li>
+            <li>✔ Mecânica Geral Preventiva</li>
+            <li>✔ Elétrica Automotiva</li>
+            <li>✔ Alinhamento e Balanceamento</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Solicite um Orçamento</h2>
+        <div class="box-form">
+            <input id="nome" type="text" placeholder="Seu nome">
+            <input id="telefone" type="text" placeholder="Seu telefone (DDD)">
             <select id="servico">
                 <option value="">Selecione o serviço</option>
-                <option>Injeção Eletrônica</option>
-                <option>Mecânica Geral</option>
-                <option>Suspensão</option>
-                <option>Scanner Avançado</option>
-                <option>Elétrica</option>
-                <option>Alinhamento</option>
+                <option value="Injeção Eletrônica">Injeção Eletrônica</option>
+                <option value="Mecânica Geral">Mecânica Geral</option>
+                <option value="Suspensão">Suspensão</option>
+                <option value="Elétrica">Elétrica</option>
+                <option value="Outros">Outros</option>
             </select>
-
-            <button class="btn-enviar" onclick="enviarWhatsApp()">Enviar via WhatsApp</button>
+            <button class="btn-enviar" onclick="enviarWhatsApp()">Enviar Solicitação</button>
         </div>
     </section>
 
-    <!-- ENDEREÇO E MAPA -->
     <section>
-        <h2>Endereço</h2>
-        <p>Rua Benjamin Constant, 1982<br>Blumenau - SC</p>
-
-        <h3>Horário de Funcionamento</h3>
-        <p>Segunda a Quinta: 08:00 às 12:00 e 13:00 às 18:00<br>
-           Sexta: 08:00 às 12:00 e 13:00 às 17:00</p>
-
-        <iframe loading="lazy"
-            src="https://www.google.com/maps?q=Rua+Benjamin+Constant+1982+Blumenau+SC&output=embed">
+        <h2>Onde Estamos</h2>
+        <p>Rua Benjamin Constant, 1982 - Blumenau, SC</p>
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.570133405374!2d-49.10371362456221!3d-26.85361307668311!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94df1f19062e7f8d%3A0x6e2b6d6006e8894b!2sR.%20Benjamin%20Constant%2C%201982%20-%20Escola%20Agr%C3%ADcola%2C%20Blumenau%20-%20SC%2C%2089037-501!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" 
+            width="100%" height="300" style="border:0; border-radius: 15px;" allowfullscreen="" loading="lazy">
         </iframe>
     </section>
 
     <footer>
-        © Auto Mecânica Fabrício - Todos os direitos reservados
+        © <span id="ano-atual"></span> Auto Mecânica Fabrício - Blumenau/SC
     </footer>
 
     <script>
+        // Atualiza o ano no rodapé automaticamente
+        document.getElementById("ano-atual").textContent = new Date().getFullYear();
+
         function enviarWhatsApp() {
-            let nome = document.getElementById("nome").value;
-            let telefone = document.getElementById("telefone").value;
-            let servico = document.getElementById("servico").value;
+            const nome = document.getElementById("nome").value.trim();
+            const telefone = document.getElementById("telefone").value.trim();
+            const servico = document.getElementById("servico").value;
 
-            let msg = `Olá, gostaria de orçamento:%0A%0A*Nome:* ${nome}%0A*Telefone:* ${telefone}%0A*Serviço:* ${servico}`;
+            if (nome === "" || servico === "") {
+                alert("Por favor, preencha seu nome e escolha um serviço.");
+                return;
+            }
 
-            window.location.href = `https://wa.me/5547988328284?text=${msg}`;
+            const mensagem = `Olá Fabrício!%0A%0A*Solicitação de Orçamento*%0A*Nome:* ${nome}%0A*Telefone:* ${telefone}%0A*Serviço:* ${servico}`;
+            const linkWhatsApp = `https://wa.me/5547988328284?text=${mensagem}`;
+
+            window.open(linkWhatsApp, '_blank');
         }
     </script>
-
 </body>
 </html>
-  
