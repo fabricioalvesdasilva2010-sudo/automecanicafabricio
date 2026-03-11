@@ -9,18 +9,26 @@
         body {
             margin: 0;
             padding: 0;
-            background: #0a1224;
+            background-color: #060c1a;
             font-family: Arial, sans-serif;
             color: white;
             text-align: center;
+        }
 
-            /* BACKGROUND COM A LOGO */
-            background-image: url("logo-bg.webp"); /* <-- Troca aqui quando me enviar o arquivo */
-            background-size: 80%;
+        /* BACKGROUND COM A LOGO (camada principal) */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("logo-bg.webp");
+            background-size: 85%;
             background-repeat: no-repeat;
-            background-position: center 100px;
-            background-attachment: fixed;
-            opacity: 1;
+            background-position: center 120px;
+            opacity: 0.18; /* ajuste da transparência do fundo */
+            z-index: -1;
         }
 
         h1 {
@@ -35,7 +43,7 @@
             color: #d9d9d9;
         }
 
-        /* BOTÕES */
+        /* Botão WhatsApp */
         .btn-whatsapp {
             background-color: #25D366;
             color: black;
@@ -53,6 +61,7 @@
             background-color: #1aa84d;
         }
 
+        /* Caixa de formulário */
         .box-form {
             background: rgba(255, 255, 255, 0.05);
             padding: 20px;
@@ -70,7 +79,7 @@
             border-radius: 5px;
             border: none;
             margin-bottom: 10px;
-            text-align: center;
+            text-align: left;
         }
 
         .btn-enviar {
