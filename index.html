@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -15,7 +15,7 @@
             text-align: center;
         }
 
-        /* BACKGROUND COM A LOGO (camada principal) */
+        /* Background da logo */
         body::before {
             content: "";
             position: fixed;
@@ -27,24 +27,21 @@
             background-size: 85%;
             background-repeat: no-repeat;
             background-position: center 120px;
-            opacity: 0.18; /* ajuste da transparência do fundo */
+            opacity: 0.18;
             z-index: -1;
         }
 
-        h1 {
-            margin-top: 40px;
-            font-size: 32px;
-            font-weight: bold;
+        h1, h2 {
+            margin-bottom: 10px;
         }
 
-        h2 {
-            font-size: 18px;
-            margin-bottom: 40px;
-            color: #d9d9d9;
+        section {
+            padding: 40px 20px;
+            max-width: 900px;
+            margin: auto;
         }
 
-        /* Botão WhatsApp */
-        .btn-whatsapp {
+        .btn-whatsapp, .btn-ligar {
             background-color: #25D366;
             color: black;
             padding: 12px 25px;
@@ -53,15 +50,18 @@
             font-weight: bold;
             font-size: 18px;
             display: inline-block;
-            margin-bottom: 30px;
+            margin: 10px;
             transition: 0.2s;
         }
 
-        .btn-whatsapp:hover {
-            background-color: #1aa84d;
+        .btn-ligar {
+            background-color: #1b9cfc;
+            color: white;
         }
 
-        /* Caixa de formulário */
+        .btn-whatsapp:hover { background-color: #1aa84d; }
+        .btn-ligar:hover { background-color: #1679c4; }
+
         .box-form {
             background: rgba(255, 255, 255, 0.05);
             padding: 20px;
@@ -73,13 +73,12 @@
             backdrop-filter: blur(4px);
         }
 
-        input {
+        input, select {
             width: 90%;
             padding: 10px;
             border-radius: 5px;
             border: none;
             margin-bottom: 10px;
-            text-align: left;
         }
 
         .btn-enviar {
@@ -97,21 +96,110 @@
             background-color: #163e82;
         }
 
+        .servicos-lista li {
+            list-style: none;
+            margin: 8px 0;
+            font-size: 18px;
+        }
+
+        iframe {
+            width: 100%;
+            max-width: 500px;
+            height: 300px;
+            border: 0;
+            border-radius: 10px;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            color: #ccc;
+            font-size: 14px;
+        }
     </style>
 </head>
+
 <body>
 
     <h1>AUTO MECÂNICA FABRÍCIO</h1>
     <h2>Manutenção completa para automóveis</h2>
 
     <a href="https://wa.me/5547988328284" class="btn-whatsapp">WhatsApp</a>
+    <a href="tel:47988328284" class="btn-ligar">Ligar Agora</a>
 
-    <div class="box-form">
-        <h3>Solicite Orçamento</h3>
-        <input type="text" placeholder="Seu nome">
-        <input type="text" placeholder="Seu telefone">
-        <button class="btn-enviar">Enviar</button>
-    </div>
+    <!-- SOBRE -->
+    <section>
+        <h2>Confiança com Décadas de Experiência</h2>
+        <p>Atendemos Blumenau e região com profissionalismo, qualidade e transparência.
+           Trabalhamos com manutenção completa para automóveis, sempre prezando pela confiança e
+           experiência conquistada ao longo de anos atendendo nossos clientes com excelência.</p>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section>
+        <h2>Serviços</h2>
+        <ul class="servicos-lista">
+            <li>✔ Injeção Eletrônica</li>
+            <li>✔ Mecânica Geral</li>
+            <li>✔ Suspensão</li>
+            <li>✔ Scanner Avançado</li>
+            <li>✔ Elétrica Automotiva</li>
+            <li>✔ Alinhamento</li>
+        </ul>
+    </section>
+
+    <!-- FORMULÁRIO WHATSAPP -->
+    <section>
+        <h2>Solicite um Orçamento</h2>
+
+        <div class="box-form">
+            <input id="nome" type="text" placeholder="Seu nome">
+            <input id="telefone" type="text" placeholder="Seu telefone">
+
+            <select id="servico">
+                <option value="">Selecione o serviço</option>
+                <option>Injeção Eletrônica</option>
+                <option>Mecânica Geral</option>
+                <option>Suspensão</option>
+                <option>Scanner Avançado</option>
+                <option>Elétrica</option>
+                <option>Alinhamento</option>
+            </select>
+
+            <button class="btn-enviar" onclick="enviarWhatsApp()">Enviar via WhatsApp</button>
+        </div>
+    </section>
+
+    <!-- ENDEREÇO E MAPA -->
+    <section>
+        <h2>Endereço</h2>
+        <p>Rua Benjamin Constant, 1982<br>Blumenau - SC</p>
+
+        <h3>Horário de Funcionamento</h3>
+        <p>Segunda a Quinta: 08:00 às 12:00 e 13:00 às 18:00<br>
+           Sexta: 08:00 às 12:00 e 13:00 às 17:00</p>
+
+        <iframe loading="lazy"
+            src="https://www.google.com/maps?q=Rua+Benjamin+Constant+1982+Blumenau+SC&output=embed">
+        </iframe>
+    </section>
+
+    <footer>
+        © Auto Mecânica Fabrício - Todos os direitos reservados
+    </footer>
+
+    <script>
+        function enviarWhatsApp() {
+            let nome = document.getElementById("nome").value;
+            let telefone = document.getElementById("telefone").value;
+            let servico = document.getElementById("servico").value;
+
+            let msg = `Olá, gostaria de orçamento:%0A%0A*Nome:* ${nome}%0A*Telefone:* ${telefone}%0A*Serviço:* ${servico}`;
+
+            window.location.href = `https://wa.me/5547988328284?text=${msg}`;
+        }
+    </script>
 
 </body>
 </html>
+           
