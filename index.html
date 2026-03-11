@@ -14,23 +14,67 @@
     </script>
 
     <style>
-        body { margin: 0; padding: 0; background: linear-gradient(135deg, #101827 0%, #1e293b 100%); font-family: sans-serif; color: #f1f5f9; text-align: center; min-height: 100vh; }
-        body::before { content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: url("logo-bg.webp"); background-size: contain; background-repeat: no-repeat; background-position: center; opacity: 0.15; z-index: -1; }
-        header { padding: 40px 20px; }
-        h1 { font-size: 2.2rem; color: #3b82f6; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
-        .btn-whatsapp, .btn-ligar { background-color: #22c55e; color: white; padding: 15px 30px; text-decoration: none; border-radius: 10px; font-weight: bold; display: inline-block; margin: 10px; box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3); }
+        body {
+            margin: 0; padding: 0;
+            background: linear-gradient(135deg, #101827 0%, #1e293b 100%);
+            font-family: 'Segoe UI', Arial, sans-serif;
+            color: #f1f5f9; text-align: center; min-height: 100vh;
+        }
+        body::before {
+            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url("logo-bg.webp"); background-size: contain;
+            background-repeat: no-repeat; background-position: center;
+            opacity: 0.15; z-index: -1;
+        }
+        header { padding: 50px 20px; }
+        h1 { font-size: 2.5rem; color: #3b82f6; margin: 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        .subtitle { color: #94a3b8; font-weight: bold; margin-top: 5px; }
+
+        /* Botões */
+        .btn-whatsapp, .btn-ligar {
+            color: white; padding: 15px 30px; text-decoration: none; border-radius: 10px;
+            font-weight: bold; font-size: 18px; display: inline-block; margin: 10px; transition: 0.3s;
+        }
+        .btn-whatsapp { background-color: #22c55e; box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3); }
         .btn-ligar { background-color: #3b82f6; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3); }
-        .box-form { background: rgba(255, 255, 255, 0.1); padding: 25px; max-width: 350px; margin: 20px auto; border-radius: 15px; border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(10px); }
-        input, select { width: 100%; padding: 12px; border-radius: 8px; border: none; margin-bottom: 15px; box-sizing: border-box; }
-        .btn-enviar { background-color: #2563eb; color: white; width: 100%; padding: 14px; border-radius: 8px; border: none; font-weight: bold; cursor: pointer; }
-        footer { padding: 30px; color: #64748b; font-size: 13px; }
+        .btn-whatsapp:hover, .btn-ligar:hover { transform: translateY(-3px); filter: brightness(1.1); }
+
+        /* Lista de Serviços - RECUPERADA */
+        .servicos-lista {
+            padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px; max-width: 900px; margin: 30px auto;
+        }
+        .servicos-lista li {
+            list-style: none; background: rgba(255, 255, 255, 0.05); padding: 15px;
+            border-radius: 8px; border-left: 4px solid #3b82f6; text-align: left; font-size: 18px;
+        }
+
+        /* Formulário */
+        .box-form {
+            background: rgba(255, 255, 255, 0.1); padding: 30px; max-width: 400px;
+            margin: 20px auto; border-radius: 15px; border: 1px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+        }
+        input, select {
+            width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #334155;
+            margin-bottom: 15px; background-color: #f8fafc; color: #1e293b; font-size: 16px; box-sizing: border-box;
+        }
+        .btn-enviar {
+            background-color: #2563eb; color: white; width: 100%; padding: 14px;
+            border-radius: 8px; border: none; font-weight: bold; cursor: pointer; font-size: 16px;
+        }
+
+        /* Mapa - RECUPERADO */
+        .mapa-container { margin: 20px auto; max-width: 900px; border: 3px solid rgba(255,255,255,0.1); border-radius: 15px; overflow: hidden; }
+        
+        footer { padding: 40px; color: #64748b; font-size: 14px; }
     </style>
 </head>
 <body>
 
     <header>
         <h1>AUTO MECÂNICA FABRÍCIO</h1>
-        <p>Blumenau - Manutenção Automotiva</p>
+        <p class="subtitle">Manutenção completa para automóveis em Blumenau</p>
     </header>
 
     <div>
@@ -39,38 +83,63 @@
     </div>
 
     <section>
+        <ul class="servicos-lista">
+            <li>✔ Injeção Eletrônica & Scanner</li>
+            <li>✔ Mecânica Geral Preventiva</li>
+            <li>✔ Suspensão e Freios</li>
+            <li>✔ Elétrica Automotiva</li>
+            <li>✔ Revisão para Viagem</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Solicite um Orçamento</h2>
         <div class="box-form">
             <input id="nome" type="text" placeholder="Seu nome">
+            <input id="telefone" type="text" placeholder="Seu telefone">
             <select id="servico">
                 <option value="">Selecione o serviço</option>
-                <option value="Mecânica">Mecânica Geral</option>
-                <option value="Injeção">Injeção Eletrônica</option>
-                <option value="Elétrica">Elétrica / Scanner</option>
+                <option value="Mecânica Geral">Mecânica Geral</option>
+                <option value="Injeção Eletrônica">Injeção Eletrônica</option>
+                <option value="Suspensão">Suspensão / Freios</option>
+                <option value="Elétrica">Elétrica</option>
             </select>
-            <button class="btn-enviar" onclick="enviarWhatsApp()">Solicitar Orçamento</button>
+            <button class="btn-enviar" onclick="enviarWhatsApp()">Enviar para o WhatsApp</button>
         </div>
     </section>
 
     <section>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.4586884693247!2d-49.0963!3d-26.8584!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94df19192997127b%3A0x6734567!2sR.%20Benjamin%20Constant%2C%201982%20-%20Vila%20Nova%2C%20Blumenau%20-%20SC!5e0!3m2!1spt-BR!2sbr!4v1710000000000" width="100%" height="250" style="border:0; border-radius:15px;" allowfullscreen="" loading="lazy"></iframe>
+        <p>Rua Benjamin Constant, 1982 - Blumenau, SC</p>
+        <div class="mapa-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.458764353488!2d-49.0963!3d-26.8584!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94df19206660145d%3A0x6b1f6b5b5b5b5b5b!2sRua%20Benjamin%20Constant%2C%201982!5e0!3m2!1spt-BR!2sbr!4v1710000000000" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
     </section>
 
-    <footer>© <span id="ano"></span> Auto Mecânica Fabrício</footer>
+    <footer>
+        © <span id="ano-atual"></span> Auto Mecânica Fabrício - Todos os direitos reservados.
+    </footer>
 
     <script>
-        document.getElementById("ano").textContent = new Date().getFullYear();
+        document.getElementById("ano-atual").textContent = new Date().getFullYear();
 
         function enviarWhatsApp() {
-            const nome = document.getElementById("nome").value;
+            const nome = document.getElementById("nome").value.trim();
             const servico = document.getElementById("servico").value;
-            if (nome === "" || servico === "") { alert("Preencha seu nome e serviço!"); return; }
-            
-            // Registra a conversão no Google antes de abrir o zap
-            gtag('event', 'conversion', {'send_to': 'AW-11132171845'});
 
-            const link = `https://wa.me/5547988328284?text=Olá Fabrício! Nome: ${nome}, Serviço: ${servico}`;
-            window.open(link, '_blank');
+            if (nome === "" || servico === "") {
+                alert("Por favor, preencha o nome e o serviço.");
+                return;
+            }
+
+            // Registra a conversão no Google Ads
+            if (typeof gtag === 'function') {
+                gtag('event', 'conversion', {'send_to': 'AW-11132171845'});
+            }
+
+            const mensagem = `Olá Fabrício!%0A%0A*Novo Orçamento pelo Site*%0A*Nome:* ${nome}%0A*Serviço:* ${servico}`;
+            window.open(`https://wa.me/5547988328284?text=${mensagem}`, '_blank');
         }
     </script>
+
 </body>
 </html>
