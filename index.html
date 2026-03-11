@@ -30,16 +30,13 @@
         h1 { font-size: 2.5rem; color: #3b82f6; margin: 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
         .subtitle { color: #94a3b8; font-weight: bold; margin-top: 5px; }
 
-        /* Botões */
         .btn-whatsapp, .btn-ligar {
             color: white; padding: 15px 30px; text-decoration: none; border-radius: 10px;
             font-weight: bold; font-size: 18px; display: inline-block; margin: 10px; transition: 0.3s;
         }
         .btn-whatsapp { background-color: #22c55e; box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3); }
         .btn-ligar { background-color: #3b82f6; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3); }
-        .btn-whatsapp:hover, .btn-ligar:hover { transform: translateY(-3px); filter: brightness(1.1); }
 
-        /* Lista de Serviços - RECUPERADA */
         .servicos-lista {
             padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 15px; max-width: 900px; margin: 30px auto;
@@ -49,7 +46,6 @@
             border-radius: 8px; border-left: 4px solid #3b82f6; text-align: left; font-size: 18px;
         }
 
-        /* Formulário */
         .box-form {
             background: rgba(255, 255, 255, 0.1); padding: 30px; max-width: 400px;
             margin: 20px auto; border-radius: 15px; border: 1px solid rgba(255,255,255,0.2);
@@ -64,9 +60,7 @@
             border-radius: 8px; border: none; font-weight: bold; cursor: pointer; font-size: 16px;
         }
 
-        /* Mapa - RECUPERADO */
         .mapa-container { margin: 20px auto; max-width: 900px; border: 3px solid rgba(255,255,255,0.1); border-radius: 15px; overflow: hidden; }
-        
         footer { padding: 40px; color: #64748b; font-size: 14px; }
     </style>
 </head>
@@ -78,7 +72,7 @@
     </header>
 
     <div>
-        <a href="https://wa.me/5547988328284" onclick="gtag('event', 'conversion', {'send_to': 'AW-11132171845'});" target="_blank" class="btn-whatsapp">WhatsApp Oficial</a>
+        <a href="https://wa.me/5547988328284" onclick="return rastroGoogle();" target="_blank" class="btn-whatsapp">WhatsApp Oficial</a>
         <a href="tel:47988328284" class="btn-ligar">Ligar Agora</a>
     </div>
 
@@ -111,7 +105,7 @@
     <section>
         <p>Rua Benjamin Constant, 1982 - Blumenau, SC</p>
         <div class="mapa-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.458764353488!2d-49.0963!3d-26.8584!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94df19206660145d%3A0x6b1f6b5b5b5b5b5b!2sRua%20Benjamin%20Constant%2C%201982!5e0!3m2!1spt-BR!2sbr!4v1710000000000" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.431281861783!2d-49.1005232!3d-26.8580556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94df191838f7129f%3A0x6b00c5c6f6004b9e!2sR.%20Benjamin%20Constant%2C%201982%20-%20Escola%20Agr%C3%ADcola%2C%20Blumenau%20-%20SC%2C%2089037-501!5e0!3m2!1spt-BR!2sbr!4v1700000000000" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </section>
 
@@ -122,6 +116,15 @@
     <script>
         document.getElementById("ano-atual").textContent = new Date().getFullYear();
 
+        function rastroGoogle() {
+            if (typeof gtag === 'function') {
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-11132171845' 
+                });
+            }
+            return true;
+        }
+
         function enviarWhatsApp() {
             const nome = document.getElementById("nome").value.trim();
             const servico = document.getElementById("servico").value;
@@ -131,15 +134,11 @@
                 return;
             }
 
-            // Registra a conversão no Google Ads
-            if (typeof gtag === 'function') {
-                gtag('event', 'conversion', {'send_to': 'AW-11132171845'});
-            }
+            rastroGoogle(); 
 
             const mensagem = `Olá Fabrício!%0A%0A*Novo Orçamento pelo Site*%0A*Nome:* ${nome}%0A*Serviço:* ${servico}`;
             window.open(`https://wa.me/5547988328284?text=${mensagem}`, '_blank');
         }
     </script>
-
 </body>
 </html>
